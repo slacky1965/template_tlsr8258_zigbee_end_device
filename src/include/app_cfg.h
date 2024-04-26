@@ -92,7 +92,7 @@ extern "C" {
 #define BOARD_B91_EVK                   8
 #define BOARD_B91_DONGLE                9
 #define BOARD_8258_DIY                  10
-#define BOARD_TB_04                     11
+#define BOARD_8258_DIY_ZI               11
 
 /* Board define */
 #if defined(MCU_CORE_826x)
@@ -106,7 +106,7 @@ extern "C" {
 #if (CHIP_TYPE == TLSR_8258_1M)
     #define FLASH_CAP_SIZE_1M           1
 #endif
-    #define BOARD                       BOARD_8258_DONGLE //BOARD_8258_DIY //BOARD_TB_04 //BOARD_8258_EVK //
+    #define BOARD                       BOARD_8258_DIY_ZI //BOARD_8258_DONGLE //BOARD_8258_DIY
     #define CLOCK_SYS_CLOCK_HZ          48000000
     #define NV_ITEM_APP_USER_CFG        (NV_ITEM_APP_GP_TRANS_TABLE + 1)    // see sdk/proj/drivers/drv_nv.h
 #elif defined(MCU_CORE_8278)
@@ -144,8 +144,8 @@ extern "C" {
     #include "board_b91_dongle.h"
 #elif (BOARD == BOARD_8258_DIY)
     #include "board_8258_diy.h"
-#elif (BOARD == BOARD_TB_04)
-    #include "board_TB-04.h"
+#elif (BOARD == BOARD_8258_DIY_ZI)
+    #include "board_8258_diy_zi.h"
 #endif
 
 
@@ -164,7 +164,8 @@ extern "C" {
 #if defined(MCU_CORE_826x)
     #define VOLTAGE_DETECT_ADC_PIN                  0
 #elif defined(MCU_CORE_8258) || defined(MCU_CORE_8278)
-    #define VOLTAGE_DETECT_ADC_PIN                  GPIO_PC4
+    #define VOLTAGE_DETECT_ADC_PIN                  GPIO_PD3
+//    #define VOLTAGE_DETECT_ADC_PIN                  GPIO_PC4
 #elif defined(MCU_CORE_B91)
     #define VOLTAGE_DETECT_ADC_PIN                  ADC_GPIO_PB0
 #endif
